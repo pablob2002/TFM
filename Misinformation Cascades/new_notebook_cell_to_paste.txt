@@ -1,0 +1,22 @@
+# NEW CELL: Poster-ready plotting (paste into a new notebook cell)
+
+# Import if needed
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Make sure the variables below exist in the notebook: 
+# `optimal_results_mis`, `optimal_results_inf`, optionally `optimal_results_mixed`.
+# Also optionally `OPTIMAL_MAX_WAITING_TIME_MIS`, `OPTIMAL_MAX_WAITING_TIME_INF`.
+
+# If you created poster_plot_cell.py in the same folder, you can import the function:
+from poster_plot_cell import make_poster_figure
+
+# Create and save a high-resolution PNG for your poster:
+make_poster_figure(optimal_results_mis, optimal_results_inf,
+                   opt_mix=optimal_results_mixed if 'optimal_results_mixed' in globals() else None,
+                   opt_mis_val=OPTIMAL_MAX_WAITING_TIME_MIS if 'OPTIMAL_MAX_WAITING_TIME_MIS' in globals() else None,
+                   opt_inf_val=OPTIMAL_MAX_WAITING_TIME_INF if 'OPTIMAL_MAX_WAITING_TIME_INF' in globals() else None,
+                   save_path='poster_figure.png', dpi=300)
+
+# After running, a file named 'poster_figure.png' will be created in the current working directory.
+# For a larger poster-ready output use dpi=600 or increase the figsize inside the function.
